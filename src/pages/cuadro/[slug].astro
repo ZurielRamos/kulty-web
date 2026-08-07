@@ -1,0 +1,41 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { API_URL } from '@/config';
+import type { Product } from '@/types';
+import ProductPageGrid from '@/components/ProductPageGrid';
+
+const { slug } = Astro.params;
+
+const id = slug?.split('-').pop();
+
+if (!id || isNaN(Number(id))) {
+  return Astro.redirect('/404');
+}
+
+let product: Product | null = null;
+let store = { phone: '', prices: [] as { size: string; price: number }[] };
+
+try {
+  const [productRes, storeRes] = await Promise.all([
+    fetch(`${API_URL}/api/products/${id}`),
+    fetch(`${API_URL}/api/store`),
+  ]);
+  if (productRes.ok) product = await productRes.json();
+  if (storeRes.ok) store = await storeRes.json();
+} catch (e) {
+  console.error('Error fetching data:', e);
+}
+
+if (!product) {
+  return Astro.redirect('/404');
+}
+
+const title = product.title;
+---
+
+<Layout title={`${title} - Kulty`} description={product.description}>
+  <main class="p-3 lg:p-4">
+    <ProductPageGrid product={product} phone={store.phone || ''} prices={store.prices || []} client:load />
+  </main>
+</Layout>
+</Layout>
