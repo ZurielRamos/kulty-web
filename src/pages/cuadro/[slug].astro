@@ -34,7 +34,7 @@ const title = product.title;
 const ogImage = product.gallery[1] || product.gallery[0];
 ---
 
-<Layout title={`${title} | Kulty Shop`} description={product.description} ogImage={ogImage}>
+<Layout title={`Cuadro Decorativo ${title} | Kulty Shop`} description={product.description} ogImage={ogImage}>
   <main class="p-3 lg:p-4">
     <ProductPageGrid product={product} phone={store.phone || ''} prices={store.prices || []} client:load />
   </main>

@@ -141,7 +141,7 @@ export default function ProductPageGrid({ product, phone, prices }: Props) {
     return () => observer.disconnect();
   }, [fetchMore, hasMore, initialLoading]);
 
-  const whatsappMessage = `Hola! Me interesa el cuadro "${product.title}" en tamaño ${selectedSize}cm.${formattedPrice ? ` Precio: ${formattedPrice}.` : ''} ¿Está disponible?`;
+  const whatsappMessage = `Hola me interesa el cuadro:\nCOD-${product.id} ${product.title}\nTamaño: ${selectedSize}`;
   const whatsappUrl = `https://wa.me/${phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
@@ -179,7 +179,7 @@ export default function ProductPageGrid({ product, phone, prices }: Props) {
           </div>
         </div>
         <div className="mt-3 space-y-3 px-1">
-          <h1 className="text-xl font-bold text-gray-900">{product.title}</h1>
+          <h1 className="text-xl font-bold text-gray-900">Cuadro Decorativo {product.title}</h1>
           {product.description && (
             <p className="text-sm text-gray-600">{product.description}</p>
           )}
@@ -243,7 +243,7 @@ export default function ProductPageGrid({ product, phone, prices }: Props) {
           </div>
           <div className="w-1/2 bg-white/85 backdrop-blur-xl p-4 lg:p-5 flex flex-col justify-between">
             <div>
-              <h1 className="text-lg lg:text-2xl 2xl:text-3xl font-bold text-gray-900">{product.title}</h1>
+              <h1 className="text-lg lg:text-2xl 2xl:text-3xl font-bold text-gray-900">Cuadro Decorativo {product.title}</h1>
               <p className="text-sm text-gray-500 mt-1 capitalize">
                 {product.category} · {product.style.replace('_', ' ')}
               </p>
