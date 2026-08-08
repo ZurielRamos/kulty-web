@@ -15,9 +15,9 @@ const whatsappUrl = store.phone ? `https://wa.me/${store.phone.replace(/[^0-9]/g
 
 <aside class="hidden md:flex fixed left-3 top-3 bottom-3 w-14 flex-col items-center justify-between py-4 bg-white/80 backdrop-blur-md border border-gray-200 rounded-2xl z-20">
   <!-- Logo -->
-  <a href="/" class="block w-9 h-9 rounded-full overflow-hidden" title="Kulty">
+  <a href="/" class="block w-9 h-9 shrink-0 rounded-full overflow-hidden" title="Kulty">
     {store.logo ? (
-      <img src={store.logo} alt="Logo" class="w-full h-full object-contain" />
+      <img src={store.logo} alt="Logo" class="w-9 h-9 object-contain" width="36" height="36" />
     ) : (
       <span class="w-full h-full flex items-center justify-center text-lg font-bold text-gray-900">K</span>
     )}

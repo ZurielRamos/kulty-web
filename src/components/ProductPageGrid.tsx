@@ -141,7 +141,8 @@ export default function ProductPageGrid({ product, phone, prices }: Props) {
     return () => observer.disconnect();
   }, [fetchMore, hasMore, initialLoading]);
 
-  const whatsappMessage = `Hola me interesa el cuadro:\nCOD-${product.id} ${product.title}\nTamaño: ${selectedSize}`;
+  const productUrl = typeof window !== 'undefined' ? window.location.href : '';
+  const whatsappMessage = `Hola me interesa el cuadro:\nCOD-${product.id}\n${product.title}\nTamaño: ${selectedSize}\n${productUrl}`;
   const whatsappUrl = `https://wa.me/${phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
