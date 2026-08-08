@@ -36,7 +36,7 @@ export default function HeroSection({ searchValue, onSearchChange, onSearch }: P
   }, []);
 
   return (
-    <section className="relative mx-3 mt-3 px-4 pt-12 pb-10 md:pt-16 md:pb-12 overflow-hidden rounded-2xl">
+    <section className="relative mx-3 mt-3 mb-6 px-4 pt-12 pb-10 md:pt-16 md:pb-12 overflow-hidden rounded-2xl">
       {/* Imagen de fondo */}
       <div className="absolute inset-0 -z-10 rounded-2xl overflow-hidden">
         <img
@@ -104,7 +104,15 @@ export default function HeroSection({ searchValue, onSearchChange, onSearch }: P
       </div>
 
       {/* Trust cards */}
-      <div className="mt-8 max-w-2xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-2">
+      <div className="mt-6 flex items-center justify-center gap-1 text-xs text-gray-500">
+        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+        </svg>
+        <span>Medellín, Colombia</span>
+      </div>
+
+      <div className="mt-4 max-w-2xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-2">
         <div className="flex flex-col items-center gap-2 px-3 py-4 bg-white/70 backdrop-blur-sm rounded-xl border border-white/50">
           <svg className="w-7 h-7 text-blue-500" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0H6.375m11.25 0h3.375a1.125 1.125 0 001.125-1.125v-3.375M3.375 14.25V4.875c0-.621.504-1.125 1.125-1.125h9.75c.621 0 1.125.504 1.125 1.125v9.375m-15.375 0h15.375m0 0V8.25m0 6h3.375c.621 0 1.125-.504 1.125-1.125V8.25m-4.5 0h4.5m-4.5 0l-4.5-4.5M19.5 8.25l-4.5-4.5" />
